@@ -16,25 +16,17 @@ https://londonappbrewery.github.io/Simon-Game/
 */
 
 const STEPCHOICES = ["#green", "#red,", "#yellow", "#blue"];
-const GREENSOUND = new Audio("./sounds/blue.mp3");
-const REDSOUND = new Audio("./sounds/blue.mp3");
-const YELLOWSOUND = new Audio("./sounds/blue.mp3");
+
+// BUTTON ANIMATIONS + SOUND EFFECT
+
+const GREENSOUND = new Audio("./sounds/green.mp3");
+const REDSOUND = new Audio("./sounds/red.mp3");
+const YELLOWSOUND = new Audio("./sounds/yellow.mp3");
 const BLUESOUND = new Audio("./sounds/blue.mp3");
-const WRONGSOUND = new Audio("./sounds/blue.mp3");
-
-// start game
-$(document).click(newStep); // click anywhere to start
-let computerSteps = [];
-
-function newStep() {
-  let ind = Math.floor(Math.random()*4);
-  let newStep = STEPCHOICES[ind];
-  computerSteps.push(newStep);
-  return newStep;
-}
+const WRONGSOUND = new Audio("./sounds/wrong.mp3");
 
 function animateButton(btnID) {
-  
+
   // visual
   $(btnID).addClass("pressed");
 
@@ -60,3 +52,40 @@ function animateButton(btnID) {
     $(btnID).removeClass("pressed");
   }, 100);
 }
+
+$("#green").click(function() {
+  animateButton("#green")
+});
+$("#red").click(function() {
+  animateButton("#red")
+});
+$("#blue").click(function() {
+  animateButton("#blue")
+});
+$("#yellow").click(function() {
+  animateButton("#yellow")
+});
+
+// Header Display
+
+function gameOver() {
+  $("#header").text('Game over! Press any key to restart.');
+}
+
+function displayLevel() {
+  let currentLevel = computerSteps.length + 1;
+  $("#header").text(`Level ${currentLevel}`); 
+}
+
+// Start Game
+
+$(document).click(newStep); // click anywhere to start
+let computerSteps = [];
+
+function newStep() {
+  let index = Math.floor(Math.random()*4);
+  let newStep = STEPCHOICES[index];
+  computerSteps.push(newStep);
+  return newStep;
+}
+
