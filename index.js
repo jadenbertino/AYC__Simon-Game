@@ -51,7 +51,6 @@ function animateButton(btnColor) {
   }
 }
 
-// --- game logic ---
 // let computerSequence = [];
 let computerSequence = [];
 let playerSequence = [];
@@ -118,77 +117,3 @@ $(document).click(function(event) {
     } // if they survived for now, then nothing happens
   }
 });
-
-/*
-// USER CLICK - animate, update array, check if lost
-$(".btn").click(function(event) {
-  let color = event.target.id;
-
-  // animate player's button clicks
-  animateButton(color)
-
-  // add button choice to player sequence
-  playerSequence.push(color);
-
-  // check if choice is correct
-  let index = playerSequence.length - 1;
-  if (playerSequence[index] !== computerSequence[index]) {
-    // lost
-    console.log('lost');
-    computerSequence = [];
-    playerSequence = [];
-  } else {
-    newLevel();
-  }
-});
-*/
-/* 
-$(document).click(function() { // Start Game On Click
-  let computerSteps = [];
-  let gameOver = false;
-
-  for (let i = 0; i<10; i++) {   //while (!(gameOver)) { // TODO: change to a while loop later, actual game loop
-    let step = newStep(computerSteps);
-    $("#header").text(`Level ${computerSteps.length}`); 
-    animateButton(step);
-    
-    // wait for button click
-    let playerChoice = "";
-    while (!(COLORCHOICES.includes(playerChoice))) {
-      $(document).click(function(event) {
-        playerChoice = event.target.id;
-      });
-    }
-
-    // check if button clicked is correct
-    if (playerChoice !== step && COLORCHOICES.includes(playerChoice)) {
-      gameOver = true;
-    } 
-
-
-
-
-    // game over
-    //   $("#header").text('Game over! Press any key to restart.');
-
-  }
-});
-*/ 
-
-// Game setup
-
-// GAME LOGIC
-
-/* start game
-- click anywhere starts the loop below
-
-/* game loop
-- new step
-- display level
-- button trackers
-- check user click
-- correct = loop again
-- wrong = show game over header + restart loop from 0
-*/
-
-
